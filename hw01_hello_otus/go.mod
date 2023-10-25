@@ -1,4 +1,4 @@
-module hw-otushw01_hello_otus
+module github.com/alexkuz457/hw-otus/hw01_hello_otus
 
 go 1.21
 
