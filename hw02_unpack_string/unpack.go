@@ -15,17 +15,14 @@ func Unpack(str string) (string, error) {
 	var prevCharIsNum, currCharIsNum, nextCharIsNum bool
 	var resStr string
 	var err error
-	//var char1, char2 string
 
 	strArr := []rune(str)
 	lenStr := len(strArr)
-	//byteArr := []byte(str)
-	//for num, rune1 := range strArr {
 
 	for num := 0; num < lenStr; num++ {
 		currChar = string(strArr[num])
 		currCharIsNum = unicode.IsNumber(strArr[num])
-		if num == lenStr-1 { //последний символ. Его всегда выводим, если он есть.
+		if num == lenStr-1 {
 			resStr = resStr + currChar
 			break
 		}
@@ -35,24 +32,20 @@ func Unpack(str string) (string, error) {
 		case !currCharIsNum && nextCharIsNum: // буква + цифра --> выводим N букв
 			{
 				countRep, _ := strconv.Atoi(nextChar)
-				resStr = resStr + strings.Repeat(currChar, countRep)
+				resStr += strings.Repeat(currChar, countRep)
 				num++ // так как мы использовали 2 символа из строки
 			}
 		case !prevCharIsNum && !currCharIsNum: // буква + буква --> выводим букву
 			{
-				resStr = resStr + currChar
+				resStr += currChar
 			}
-
 		case currCharIsNum: // ошибка
 			{
 				resStr = "invalid string"
 				num = lenStr
 				err = ErrInvalidString
 			}
-
 		}
-
 	}
-
 	return resStr, err
 }
