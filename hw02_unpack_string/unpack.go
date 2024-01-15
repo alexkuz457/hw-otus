@@ -23,7 +23,7 @@ func Unpack(str string) (string, error) {
 		currChar = string(strArr[num])
 		currCharIsNum = unicode.IsNumber(strArr[num])
 		if num == lenStr-1 {
-			resStr = resStr + currChar
+			resStr += currChar
 			break
 		}
 		nextCharIsNum = unicode.IsNumber(strArr[num+1])
