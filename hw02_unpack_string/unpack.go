@@ -14,7 +14,7 @@ func Unpack(str string) (string, error) {
 	var currChar, nextChar string
 	var prevCharIsNum, currCharIsNum, nextCharIsNum bool
 	var resStr string
-
+	var err error
 	//var char1, char2 string
 
 	strArr := []rune(str)
@@ -45,13 +45,14 @@ func Unpack(str string) (string, error) {
 
 		case currCharIsNum: // ошибка
 			{
-				resStr = "Некорректная строка"
+				resStr = "invalid string"
 				num = lenStr
+				err = ErrInvalidString
 			}
 
 		}
 
 	}
 
-	return resStr, nil
+	return resStr, err
 }
