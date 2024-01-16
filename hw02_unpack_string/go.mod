@@ -1,4 +1,4 @@
-module hw02_unpack_string
+module github.com/alexkuz457/hw-otus/hw02_unpack_string
 
 go 1.21
 
