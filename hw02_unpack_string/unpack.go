@@ -32,11 +32,8 @@ func Unpack(str string) (string, error) {
 				sb.WriteString(strings.Repeat(string(strArr[num]), int(strArr[num+1]-'0')))
 				num++ // так как мы использовали 2 символа из строки
 			}
-
 		case !currCharIsNum && !nextCharIsNum: // буква + буква --> выводим букву
-			{
-				sb.WriteRune(strArr[num])
-			}
+			sb.WriteRune(strArr[num])
 		case currCharIsNum: // ошибка
 			{
 				sb.Reset()
