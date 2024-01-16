@@ -23,9 +23,7 @@ func Unpack(str string) (string, error) {
 			sb.WriteRune(strArr[num])
 			break
 		}
-
 		nextCharIsNum = unicode.IsNumber(strArr[num+1])
-
 		switch {
 		case !currCharIsNum && nextCharIsNum: // буква + цифра --> выводим N букв
 			{
