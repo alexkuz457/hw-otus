@@ -1,6 +1,9 @@
 package hw03frequencyanalysis
 
-func Top10(_ string) []string {
-	// Place your code here.
-	return nil
+import "strings"
+
+func Top10(str string) []string {
+
+	strArr := strings.Split(str)
+	return strArr
 }

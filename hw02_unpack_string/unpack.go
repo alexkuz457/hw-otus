@@ -9,14 +9,11 @@ import (
 var ErrInvalidString = errors.New("invalid string")
 
 func Unpack(str string) (string, error) {
-
 	var currCharIsNum, nextCharIsNum bool
 	var err error
 	var sb strings.Builder
-
 	strArr := []rune(str)
 	lenStr := len(strArr)
-
 	for num := 0; num < lenStr; num++ {
 		currCharIsNum = unicode.IsNumber(strArr[num])
 		if num == lenStr-1 {
