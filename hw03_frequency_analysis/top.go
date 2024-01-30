@@ -1,6 +1,7 @@
 package hw03frequencyanalysis
 
 import (
+	"fmt"
 	"sort"
 	"strings"
 )
@@ -38,6 +39,10 @@ func Top10(str string) []string {
 		}
 		return res
 	})
+
+	for _, v := range sortSlice {
+		fmt.Println(v, " (", m[v], ")")
+	}
 
 	return sortSlice
 }
