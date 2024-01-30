@@ -88,7 +88,6 @@ func TestTop10(t *testing.T) {
 	})
 
 	t.Run("positive test", func(t *testing.T) {
-
 		expected := []string{
 			"он",        // 8
 			"а",         // 6
