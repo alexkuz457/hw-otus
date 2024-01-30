@@ -1,6 +1,42 @@
 package hw03frequencyanalysis
 
-func Top10(_ string) []string {
-	// Place your code here.
-	return nil
+import (
+	"sort"
+	"strings"
+)
+
+func Top10(str string) []string {
+
+	m := map[string]int{}
+	var sortSlice []string
+	strAttr := strings.Fields(str)
+	for _, word := range strAttr {
+		_, ok := m[word]
+		if !ok {
+			m[word] = 1
+			sortSlice = append(sortSlice, word)
+		} else {
+			m[word]++
+		}
+	}
+
+	sort.Slice(sortSlice, func(i, j int) bool {
+		return m[sortSlice[i]] > m[sortSlice[j]]
+	})
+
+	// взять первые 10
+	if len(sortSlice) > 10 {
+		sortSlice = sortSlice[:10]
+	}
+
+	// сортируем повторно. Теперь лексикографически
+	sort.Slice(sortSlice, func(i, j int) bool {
+		if m[sortSlice[i]] == m[sortSlice[j]] {
+			return sortSlice[i] < sortSlice[j]
+		} else {
+			return m[sortSlice[i]] > m[sortSlice[j]]
+		}
+	})
+
+	return sortSlice
 }
