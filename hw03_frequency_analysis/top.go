@@ -6,7 +6,6 @@ import (
 )
 
 func Top10(str string) []string {
-
 	m := map[string]int{}
 	var sortSlice []string
 	strAttr := strings.Fields(str)
@@ -31,11 +30,13 @@ func Top10(str string) []string {
 
 	// сортируем повторно. Теперь лексикографически
 	sort.Slice(sortSlice, func(i, j int) bool {
+		var res bool
 		if m[sortSlice[i]] == m[sortSlice[j]] {
-			return sortSlice[i] < sortSlice[j]
+			res = sortSlice[i] < sortSlice[j]
 		} else {
-			return m[sortSlice[i]] > m[sortSlice[j]]
+			res = m[sortSlice[i]] > m[sortSlice[j]]
 		}
+		return res
 	})
 
 	return sortSlice
