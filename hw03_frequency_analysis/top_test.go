@@ -112,18 +112,25 @@ func TestTop10(t *testing.T) {
 		require.Equal(t, expected, Top10("bc bc  bc aa aa   aa vr vr vr vr vr"), 0)
 	})
 
+	t.Run("sensei test", func(t *testing.T) {
+		expected := []string{
+
+			"a", "c", "d", "j", "k", "m", "n", "p", "q", "r",
+		}
+		require.Equal(t, expected, Top10("a a v v k k c c d d x x z z n n m m j j p p q q r r "), 0)
+	})
 	t.Run("another positive test", func(t *testing.T) {
 		expected := []string{
-			"Вот",       // ( 12 )
-			"вот",       // ( 12 )
-			"как",       // ( 12 )
-			"как,",      // ( 12 )
-			"–",         // ( 6 )
-			"в",         // ( 4 )
-			"да",        // ( 4 )
-			"по",        // ( 4 )
-			"рожки",     // ( 4 )
-			"серенький", // ( 4 )
+			"Вот",     // ( 12 )
+			"вот",     // ( 12 )
+			"как",     // ( 12 )
+			"как,",    // ( 12 )
+			"–",       // ( 6 )
+			"в",       // ( 4 )
+			"вниз",    // ( 4 )
+			"да",      // ( 4 )
+			"козлика", // ( 4 )
+			"лес",     // ( 4 )
 		}
 		require.Equal(t, expected, Top10(text1))
 	})
