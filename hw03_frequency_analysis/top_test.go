@@ -86,7 +86,6 @@ func TestTop10(t *testing.T) {
 	t.Run("no words in empty string", func(t *testing.T) {
 		require.Len(t, Top10(""), 0)
 	})
-
 	t.Run("positive test", func(t *testing.T) {
 		expected := []string{
 			"он",        // 8
@@ -102,7 +101,6 @@ func TestTop10(t *testing.T) {
 		}
 		require.Equal(t, expected, Top10(text))
 	})
-
 	t.Run("simple test for visual control", func(t *testing.T) {
 		expected := []string{
 			"vr", // ( 5 )
@@ -111,7 +109,6 @@ func TestTop10(t *testing.T) {
 		}
 		require.Equal(t, expected, Top10("bc bc  bc aa aa   aa vr vr vr vr vr"), 0)
 	})
-
 	t.Run("sensei test", func(t *testing.T) {
 		expected := []string{
 
@@ -134,11 +131,9 @@ func TestTop10(t *testing.T) {
 		}
 		require.Equal(t, expected, Top10(text1))
 	})
-
 	t.Run("Chinese test", func(t *testing.T) {
 		require.NotPanics(t, func() { Top10("肮 脏 的 灰 色 狐 狸 返 回 宿 舍 一 步 一 步") })
 	})
-
 	t.Run("Pi test", func(t *testing.T) {
 		expected := []string{
 			"1", // ( 88 )

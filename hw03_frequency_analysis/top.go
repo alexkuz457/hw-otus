@@ -57,7 +57,6 @@ func Top10(str string) []string {
 		}
 		return res
 	})
-
 	if len(sortSlice) > 10 {
 		sortSlice = sortSlice[:10]
 	}
