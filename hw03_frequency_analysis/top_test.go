@@ -111,7 +111,6 @@ func TestTop10(t *testing.T) {
 	})
 	t.Run("sensei test", func(t *testing.T) {
 		expected := []string{
-
 			"a", "c", "d", "j", "k", "m", "n", "p", "q", "r",
 		}
 		require.Equal(t, expected, Top10("a a v v k k c c d d x x z z n n m m j j p p q q r r "), 0)
